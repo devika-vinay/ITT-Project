@@ -8,6 +8,14 @@
 	<link href="index.css" rel="stylesheet">
 	<link href="login.css" rel="stylesheet">
 	<title>login</title>
+	
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+
+
+	<script src="./form.js"></script>
+
 </head>
 <body class="full-height-grow">
 	<div class="container">
@@ -26,17 +34,17 @@
 		</div>
 	</section>
 	<section class="login-box">
-		<form class="form-entry">
+		<form class="form-entry" onsubmit="event.preventDefault();return false;">
 			<div class="input-group">
 				<label>email id:</label>
-				<input type="text">
+				<input type="email" placeholder="email" id="loginEmail">
 			</div>
 			<div class="input-group">
 				<label>password:</label>
-				<input type="text">
+				<input type="password" placeholder="password" id="loginPassword">
 			</div>
 			<div class="input-group">
-				<button type="submit" class="btn">login</button>
+				<button onclick="userLogin()" id="Login"> Login </button>
 			</div>
 		</form>
 	</section>
