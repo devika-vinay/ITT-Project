@@ -36,4 +36,19 @@ function userLogin() {
 
 }
 
+function googleSignIn() {
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+  .then((result) => {
+    console.log("Success!");
+    alert("Signed in with Google");
+  }).catch((error) => {
+    var errCode = error.code;
+    var errMessage = error.message;
+    console.log(errCode);
+    console.log(errMessage);
+  })
+
+}
 // auth.onAuthStateChanged(function(user)) 
