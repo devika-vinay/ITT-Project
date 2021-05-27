@@ -1,4 +1,4 @@
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyB3joK7piWfPY72fuahSjMaGBc93iVDj_U",
     authDomain: "homes-2a852.firebaseapp.com",
@@ -12,7 +12,20 @@
 
   const auth = firebase.auth();
 
-function userSignUp() { // Signing user up 
+// auth state listener
+auth.onAuthStateChanged(function(user) {
+  if(user) {
+    console.log(user);
+    window.location.href = "http://localhost:5000/explore.html"
+  }
+  // else {
+  //   console.log(user);
+  //   window.location.href = "http://localhost:5000/signup.html"
+  // }
+})
+
+// User sign up
+function userSignUp() {  
     
     console.log("Entered signup function");
     var email = document.getElementById("emailSignUp");
@@ -24,6 +37,8 @@ function userSignUp() { // Signing user up
     alert("Signed up");
   }
 
+
+// User login  
 function userLogin() {
 
     var email = document.getElementById("loginEmail");
@@ -36,6 +51,7 @@ function userLogin() {
 
 }
 
+// Signing in with Google
 function googleSignIn() {
 
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -51,4 +67,11 @@ function googleSignIn() {
   })
 
 }
-// auth.onAuthStateChanged(function(user)) 
+
+// function userLogout() {
+
+//   auth.signOut();
+//   alert("Signed out");  
+
+// }
+
